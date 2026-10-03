@@ -1,0 +1,93 @@
+exec_mode: conda
+sample_sheet: config/samples.tsv
+entrypoint: isoseq
+aligner: ultra
+chunk: 5
+threads: 2
+capped: true
+primers: resources/primers.fasta
+fasta: resources/Homo_sapiens.GRCh38.dna.chromosome.19.fasta
+gtf: resources/Homo_sapiens.GRCh38.104.chr.13_18_19.gtf
+
+pbccs:
+  min_rq: 0.9
+  min_passes: 3
+  min_snr: 2.5
+  min_length: 10
+  max_length: 50000
+  top_passes: 60
+  ccs_extra_params: ""
+  ccs_bin: ccs
+  docker_image: quay.io/biocontainers/pbccs:6.4.0--h9ee0642_0
+  apptainer_image: ""
+
+lima:
+  extra_params: "--isoseq --peek-guess"
+  lima_bin: lima
+  docker_image: quay.io/biocontainers/lima:2.9.0--h9ee0642_0
+  apptainer_image: ""
+
+isoseq3:
+  require_polya: true
+  min_polya_length: ""
+  extra_args: ""
+  isoseq3_bin: isoseq3
+  docker_image: quay.io/biocontainers/isoseq:4.0.0--h9ee0642_0
+  apptainer_image: ""
+
+bamtools:
+  format: fasta
+  extra: ""
+  bamtools_bin: bamtools
+  docker_image: quay.io/biocontainers/bamtools:2.5.2--h577a1d6_6
+  apptainer_image: ""
+
+minimap2:
+  args: "-x splice -uf -k14"
+  cigar_bam: false
+  minimap2_bin: minimap2
+  samtools_bin: samtools
+  docker_image: quay.io/biocontainers/mulled-v2-minimap2-samtools:latest
+  apptainer_image: ""
+
+ultra:
+  index_args: "--disable_infer"
+  align_args: "--isoseq"
+  ultra_bin: uLTRA
+  docker_image: quay.io/biocontainers/ultra_bioinformatics:0.1--pyhdfd78af_0
+  apptainer_image: ""
+
+samtools:
+  samtools_bin: samtools
+  sort_args: ""
+
+gstama:
+  gstama_bin: tama_flnc_polya_cleanup.py
+  gstama_collapse_bin: tama_collapse.py
+  gstama_merge_bin: tama_merge.py
+  collapse_args: "-x no_cap -a 100 -z 100 -sj sj_priority -sjt 20 -lde 5"
+  merge_args: "-a 100 -z 100 -m 20 -d merge_dup"
+  filelist_cap: no_cap
+
+flair:
+  flair_bin: flair
+  bedtools_bin: bedtools
+  identify_gene_isoform_bin: identify_gene_isoform
+  mm2_args: "-I8g,--MD"
+  collapse_extra: ""
+  docker_image: quay.io/biocontainers/flair:3.0.0b1--pyhdfd78af_0
+  apptainer_image: ""
+
+picard:
+  docker_image: quay.io/biocontainers/picard:3.5.0--hdfd78af_0
+  apptainer_image: ""
+
+gunzip:
+  gzip_bin: gzip
+  docker_image: ""
+  apptainer_image: ""
+
+gnu_sort:
+  sort_bin: sort
+  docker_image: ""
+  apptainer_image: ""

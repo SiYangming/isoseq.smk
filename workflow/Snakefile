@@ -1,0 +1,25 @@
+configfile: "config/config.yaml"
+
+include: "rules/common.smk"
+include: "rules/picard.smk"
+include: "rules/pbccs.smk"
+include: "rules/lima.smk"
+include: "rules/isoseq3.smk"
+include: "rules/bamtools.smk"
+include: "rules/gstama.smk"
+include: "rules/align.smk"
+include: "rules/flair.smk"
+
+onstart:
+    print("\n--- Iso-Seq analysis started ---\n")
+
+onsuccess:
+    print("\n--- Workflow finished! ---\n")
+
+onerror:
+    print("\n--- An error occurred! ---\n")
+
+rule all:
+    default_target: True
+    input:
+        pipeline_targets()

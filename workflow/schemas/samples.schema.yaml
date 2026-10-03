@@ -1,0 +1,16 @@
+$schema: "https://json-schema.org/draft/2020-12/schema"
+description: sample sheet rows
+properties:
+  sample:
+    type: string
+  bam:
+    type: string
+    description: subreads BAM (isoseq) or CCS/FLNC BAM (other entrypoints)
+  pbi:
+    type: string
+  reads:
+    type: string
+    description: FASTA/FASTQ for map/flair entrypoints
+required:
+  - sample
+  - bam

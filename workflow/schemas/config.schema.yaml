@@ -1,0 +1,38 @@
+$schema: "https://json-schema.org/draft/2020-12/schema"
+type: object
+description: Iso-Seq workflow configuration
+properties:
+  exec_mode:
+    type: string
+    enum: [native, conda, docker, apptainer]
+  sample_sheet:
+    type: string
+  entrypoint:
+    type: string
+    enum: [isoseq, lima, isoseq3_refine, bamtools_convert, map, flair]
+  aligner:
+    type: string
+    enum: [minimap2, ultra]
+  chunk:
+    type: integer
+    minimum: 1
+  threads:
+    type: integer
+    minimum: 1
+  capped:
+    type: boolean
+  primers:
+    type: string
+  fasta:
+    type: string
+  gtf:
+    type: string
+additionalProperties: true
+required:
+  - exec_mode
+  - sample_sheet
+  - entrypoint
+  - aligner
+  - chunk
+  - primers
+  - fasta
