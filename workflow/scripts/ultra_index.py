@@ -16,7 +16,9 @@ from snakemake.shell import shell
 
 import docker_wrapper  # noqa: E402
 
-log = snakemake.log_fmt_shell(stdout=True, stderr=True)
+log_path = os.path.abspath(str(snakemake.log[0]))
+os.makedirs(os.path.dirname(log_path), exist_ok=True)
+log = f" > {log_path} 2>&1"
 extra = str(snakemake.params["args"])
 index_dir = os.path.abspath(str(snakemake.params["index_dir"]))
 fasta = os.path.abspath(str(snakemake.input.fasta))
