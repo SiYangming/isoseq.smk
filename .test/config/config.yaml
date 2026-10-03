@@ -69,15 +69,6 @@ gstama:
   merge_args: "-a 100 -z 100 -m 20 -d merge_dup"
   filelist_cap: no_cap
 
-flair:
-  flair_bin: flair
-  bedtools_bin: bedtools
-  identify_gene_isoform_bin: identify_gene_isoform
-  mm2_args: "-I8g,--MD"
-  collapse_extra: ""
-  docker_image: quay.io/biocontainers/flair:3.0.0b1--pyhdfd78af_0
-  apptainer_image: ""
-
 picard:
   docker_image: quay.io/biocontainers/picard:3.5.0--hdfd78af_0
   apptainer_image: ""

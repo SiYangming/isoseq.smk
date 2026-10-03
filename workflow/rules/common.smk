@@ -61,6 +61,4 @@ def align_bam(wildcards):
 
 
 def pipeline_targets():
-    if ENTRY == "flair":
-        return expand("results/flair/{sample}/{sample}.flair.collapse.fasta", sample=samples["sample"])
     return expand("results/gstama_merge/{sample}.bed", sample=samples["sample"])

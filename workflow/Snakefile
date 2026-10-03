@@ -8,7 +8,6 @@ include: "rules/isoseq3.smk"
 include: "rules/bamtools.smk"
 include: "rules/gstama.smk"
 include: "rules/align.smk"
-include: "rules/flair.smk"
 
 onstart:
     print("\n--- Iso-Seq analysis started ---\n")

@@ -15,7 +15,7 @@ bash run_smk.sh --directory .test --cores 2
 
 `exec_mode` in `config/config.yaml`: `native` | `conda` | `docker` | `apptainer`.
 
-`entrypoint`: `isoseq` | `lima` | `isoseq3_refine` | `bamtools_convert` | `map` | `flair`.
+`entrypoint`: `isoseq` | `lima` | `isoseq3_refine` | `bamtools_convert` | `map`.
 
 `aligner`: `minimap2` | `ultra`.
 

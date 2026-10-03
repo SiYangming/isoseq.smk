@@ -9,7 +9,7 @@ properties:
     type: string
   entrypoint:
     type: string
-    enum: [isoseq, lima, isoseq3_refine, bamtools_convert, map, flair]
+    enum: [isoseq, lima, isoseq3_refine, bamtools_convert, map]
   aligner:
     type: string
     enum: [minimap2, ultra]

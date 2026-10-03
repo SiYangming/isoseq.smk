@@ -10,7 +10,7 @@ properties:
     type: string
   reads:
     type: string
-    description: FASTA/FASTQ for map/flair entrypoints
+    description: FASTA/FASTQ for map entrypoint
 required:
   - sample
   - bam
