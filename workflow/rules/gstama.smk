@@ -62,6 +62,11 @@ rule gstama_filelist:
 rule gstama_merge:
     input:
         filelist="results/gstama_filelist/{sample}/filelist.tsv",
+        beds=lambda wc: expand(
+            "results/gstama_collapse/{sample}/{sample}.chunk{n}_gstama_collapsed.bed",
+            sample=[wc.sample],
+            n=CHUNKS,
+        ),
     output:
         bed="results/gstama_merge/{sample}.bed",
     log:
