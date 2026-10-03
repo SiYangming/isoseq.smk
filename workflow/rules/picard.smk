@@ -12,38 +12,38 @@ else:
 
 rule picard_sortsam:
     input:
-        bam=lambda wc: sample_bam(wc.sample)
+        bam=lambda wc: sample_bam(wc.sample),
     output:
-        bam="results/picard/{sample}/{sample}.queryname.bam"
-    params:
-        extra="SORT_ORDER=queryname"
+        bam="results/picard/{sample}/{sample}.queryname.bam",
     log:
-        "logs/picard/{sample}.sortsam.log"
-    threads: 2
+        "logs/picard/{sample}.sortsam.log",
     conda:
         "../envs/picard.yaml"
     container:
         PICARD_CONTAINER
+    threads: 2
+    params:
+        extra="SORT_ORDER=queryname",
     wrapper:
         PICARD_WRAPPER
 
 
 rule picard_split:
     input:
-        bam="results/picard/{sample}/{sample}.queryname.bam"
+        bam="results/picard/{sample}/{sample}.queryname.bam",
     output:
         bams=expand(
             "results/picard/{{sample}}/{{sample}}.chunk{n}.bam",
             n=CHUNKS,
-        )
+        ),
+    log:
+        "logs/picard/{sample}.split.log",
+    conda:
+        "../envs/picard.yaml"
     params:
         nfiles=len(CHUNKS),
         outdir=lambda wc: f"results/picard/{wc.sample}",
         prefix=lambda wc: wc.sample,
-    log:
-        "logs/picard/{sample}.split.log"
-    conda:
-        "../envs/picard.yaml"
     shell:
         """
         mkdir -p {params.outdir} "$(dirname {log})"
@@ -52,7 +52,7 @@ rule picard_split:
             O={params.outdir} \
             OUT_PREFIX={params.prefix} \
             SPLIT_TO_N_FILES={params.nfiles} \
-            > {log} 2>&1
+            >{log} 2>&1
         python workflow/scripts/picard_rename_chunks.py \
             {params.outdir} {params.prefix} {params.nfiles}
         """

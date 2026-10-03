@@ -22,7 +22,11 @@ def sample_bam(sample):
 
 
 def sample_reads(sample):
-    if "reads" in samples.columns and pd.notna(samples.loc[sample, "reads"]) and samples.loc[sample, "reads"]:
+    if (
+        "reads" in samples.columns
+        and pd.notna(samples.loc[sample, "reads"])
+        and samples.loc[sample, "reads"]
+    ):
         return samples.loc[sample, "reads"]
     return None
 
@@ -49,7 +53,9 @@ def align_reads(wildcards):
     if ENTRY == "map":
         reads = sample_reads(wildcards.sample)
         if not reads:
-            raise ValueError("map entrypoint requires a reads column in the sample sheet")
+            raise ValueError(
+                "map entrypoint requires a reads column in the sample sheet"
+            )
         return reads
     return f"results/gstama/{wildcards.sample}/{wildcards.sample}.chunk{wildcards.chunk}_gstama.fa.gz"
 
