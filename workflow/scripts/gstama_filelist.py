@@ -1,7 +1,5 @@
 """Build TAMA merge filelist.tsv from per-chunk collapsed BED files."""
 
-from __future__ import annotations
-
 import os
 import re
 from pathlib import Path

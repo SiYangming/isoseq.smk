@@ -17,8 +17,6 @@
     native 用 config isoseq3.isoseq3_bin，conda 走 PATH（isoseq3.yaml 含 isoseq3）
 """
 
-from __future__ import annotations
-
 __author__ = "Yangming Si"
 __copyright__ = "Copyright 2026, Yangming Si"
 __email__ = "siyangming1991@163.com"

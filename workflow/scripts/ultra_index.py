@@ -9,8 +9,6 @@
     docker 用镜像内默认名，conda 走 PATH（ultra.yaml 提供 uLTRA + minimap2/namfinder）
 """
 
-from __future__ import annotations
-
 import os
 import sys
 

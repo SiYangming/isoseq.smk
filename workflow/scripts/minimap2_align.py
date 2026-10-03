@@ -16,8 +16,6 @@ BAM 管线（与 native minimap2_align.py / nf-core minimap2/align 行为一致�
   写 <prefix>.versions.yml（minimap2 + samtools 版本）
 """
 
-from __future__ import annotations
-
 import os
 import sys
 

@@ -1,7 +1,5 @@
 """Snakemake wrapper for TAMA merge."""
 
-from __future__ import annotations
-
 import os
 
 from snakemake.shell import shell

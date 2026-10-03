@@ -8,8 +8,6 @@
     docker 用 bamtools.docker_image，native 用 bamtools.bamtools_bin
 """
 
-from __future__ import annotations
-
 import os
 import sys
 

@@ -11,8 +11,6 @@
     --use-conda 时由调用方自供含 coreutils 的环境）
 """
 
-from __future__ import annotations
-
 import os
 import sys
 

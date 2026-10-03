@@ -16,8 +16,6 @@
     native 用 config pbccs.ccs_bin，conda 走 PATH（pbccs.yaml 含 pbccs）
 """
 
-from __future__ import annotations
-
 __author__ = "Yangming Si"
 __copyright__ = "Copyright 2026, Yangming Si"
 __email__ = "siyangming1991@163.com"

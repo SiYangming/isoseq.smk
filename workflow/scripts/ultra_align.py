@@ -11,8 +11,6 @@
     行为一致）→ samtools sort → 清理中间 sam
 """
 
-from __future__ import annotations
-
 import glob
 import os
 import shutil

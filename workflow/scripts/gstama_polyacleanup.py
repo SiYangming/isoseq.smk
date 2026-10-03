@@ -1,7 +1,5 @@
 """Snakemake wrapper for TAMA FLNC polyA cleanup."""
 
-from __future__ import annotations
-
 import os
 import sys
 

@@ -1,7 +1,5 @@
 """Snakemake wrapper for TAMA collapse."""
 
-from __future__ import annotations
-
 import os
 
 from snakemake.shell import shell

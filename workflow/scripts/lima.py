@@ -15,8 +15,6 @@
     native 用 config lima.lima_bin，conda 走 PATH（lima.yaml 含 lima）
 """
 
-from __future__ import annotations
-
 __author__ = "Yangming Si"
 __copyright__ = "Copyright 2026, Yangming Si"
 __email__ = "siyangming1991@163.com"

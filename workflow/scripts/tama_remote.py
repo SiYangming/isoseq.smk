@@ -1,7 +1,5 @@
 """Resolve gs-tama scripts: builtin cache, then GitHub raw, then PATH."""
 
-from __future__ import annotations
-
 import os
 import sys
 import urllib.request

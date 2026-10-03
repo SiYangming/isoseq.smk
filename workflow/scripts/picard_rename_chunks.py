@@ -1,7 +1,5 @@
 #!/usr/bin/env python3
 """Rename Picard SplitSamByNumberOfReads shards to {prefix}.chunk{n}.bam."""
-from __future__ import annotations
-
 import glob
 import os
 import shutil
