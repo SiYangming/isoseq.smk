@@ -110,6 +110,7 @@ cmd = (
 cwd_old = os.getcwd()
 os.chdir(align_dir)
 try:
-    shell("{" + cmd + "; }" + log)
+    # Escape braces so snakemake.shell does not treat the bash group as a format field.
+    shell("{{ " + cmd + "; }}" + log)
 finally:
     os.chdir(cwd_old)
