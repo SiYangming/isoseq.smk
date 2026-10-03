@@ -52,3 +52,24 @@ shell(
     f" -j {snakemake.threads}"
     f"{log}"
 )
+
+# --peek-guess writes {prefix}.{pair}.bam instead of {prefix}.bam
+if not os.path.isfile(out_file):
+    import glob
+    import shutil
+
+    stem, _ = os.path.splitext(out_file)
+    hits = sorted(
+        p
+        for p in glob.glob(stem + ".*.bam")
+        if not p.endswith(".xml")
+    )
+    if not hits:
+        raise FileNotFoundError(
+            f"lima did not write {out_file} or a barcode-named BAM under {stem}.*"
+        )
+    shutil.move(hits[0], out_file)
+    src_pbi = hits[0] + ".pbi"
+    dest_pbi = out_file + ".pbi"
+    if os.path.isfile(src_pbi) and not os.path.isfile(dest_pbi):
+        shutil.move(src_pbi, dest_pbi)
